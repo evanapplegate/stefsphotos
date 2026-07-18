@@ -108,6 +108,28 @@ body {
 
 .gallery-item {
   margin-bottom: 6px;
+  position: relative;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .main-pic {
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  .spot-hole {
+    position: absolute;
+    inset: 0;
+    background-size: 100% 100%;
+    opacity: 0;
+    transition: opacity .5s;
+    pointer-events: none;
+  }
+
+  body.spot-w12 .spot-hole.w12,
+  body.spot-b12 .spot-hole.b12,
+  body.spot-w8 .spot-hole.w8,
+  body.spot-b8 .spot-hole.b8 { opacity: 1; }
 }
 
 .gallery-item a {

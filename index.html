@@ -23,17 +23,21 @@
       <p>Stef shot this <a href="assets/actual_shot1.jpg" target="_blank">sweet photo</a> in the L.A. County Arboretum with a Sony DSC-RX100 II. Below you can buy a framed print of it.</p>
       <p>The photo is printed on matte, 300 gsm-weight, 18 mil-thick cotton rag cold press paper. The Kentucky-made solid wood frames are glazed with real glass and made by <a href="https://www.artelo.io/" target="_blank" rel="noopener">Artelo</a>. They should arrive within 5 business days. All proceeds to Stef (I&rsquo;ll give her cash or something.)</p>
       <div class="buy">
-        <a class="buy-btn" href="https://buy.stripe.com/dRmeVc91XebR9do233d7q03" target="_blank" rel="noopener">12&times;12&Prime; ⋅ white frame <span>$75 ⋅ Buy</span></a>
-        <a class="buy-btn" href="https://buy.stripe.com/14AcN44LHgjZ4X8dLLd7q02" target="_blank" rel="noopener">12&times;12&Prime; ⋅ black frame <span>$75 ⋅ Buy</span></a>
-        <a class="buy-btn" href="https://buy.stripe.com/6oUdR891XffV75g4bbd7q04" target="_blank" rel="noopener">8&times;8&Prime; ⋅ white frame <span>$50 ⋅ Buy</span></a>
-        <a class="buy-btn" href="https://buy.stripe.com/28E9AS91X0l1exIfTTd7q05" target="_blank" rel="noopener">8&times;8&Prime; ⋅ black frame <span>$50 ⋅ Buy</span></a>
+        <a class="buy-btn" data-frame="w12" href="https://buy.stripe.com/dRmeVc91XebR9do233d7q03" target="_blank" rel="noopener">12&times;12&Prime; ⋅ white frame <span>$75 ⋅ Buy</span></a>
+        <a class="buy-btn" data-frame="b12" href="https://buy.stripe.com/14AcN44LHgjZ4X8dLLd7q02" target="_blank" rel="noopener">12&times;12&Prime; ⋅ black frame <span>$75 ⋅ Buy</span></a>
+        <a class="buy-btn" data-frame="w8" href="https://buy.stripe.com/6oUdR891XffV75g4bbd7q04" target="_blank" rel="noopener">8&times;8&Prime; ⋅ white frame <span>$50 ⋅ Buy</span></a>
+        <a class="buy-btn" data-frame="b8" href="https://buy.stripe.com/28E9AS91X0l1exIfTTd7q05" target="_blank" rel="noopener">8&times;8&Prime; ⋅ black frame <span>$50 ⋅ Buy</span></a>
       </div>
     </aside>
     <main class="gallery">
-      <div class="gallery-item">
+      <div class="gallery-item main-pic">
         <a href="assets/stef_frame_main.jpg" target="_blank">
           <img src="assets/web/stef_frame_main.jpg" alt="Framed print of Stef's parrot photo">
         </a>
+        <div class="spot-hole w12" style="background-image:url('assets/web/spot_w12.png')"></div>
+        <div class="spot-hole b12" style="background-image:url('assets/web/spot_b12.png')"></div>
+        <div class="spot-hole w8" style="background-image:url('assets/web/spot_w8.png')"></div>
+        <div class="spot-hole b8" style="background-image:url('assets/web/spot_b8.png')"></div>
       </div>
       <div class="gallery-item">
         <a href="assets/actual_shot1.jpg" target="_blank">
@@ -57,5 +61,16 @@
       </div>
     </main>
   </div>
+  <script>
+    var desktop = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 768px)');
+    document.querySelectorAll('.buy-btn[data-frame]').forEach(function (btn) {
+      btn.addEventListener('mouseenter', function () {
+        if (desktop.matches) document.body.classList.add('spot', 'spot-' + btn.dataset.frame);
+      });
+      btn.addEventListener('mouseleave', function () {
+        document.body.classList.remove('spot', 'spot-w12', 'spot-b12', 'spot-w8', 'spot-b8');
+      });
+    });
+  </script>
 </body>
 </html>
